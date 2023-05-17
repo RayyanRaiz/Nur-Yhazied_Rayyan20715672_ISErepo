@@ -18,7 +18,7 @@ public class ISADP
 
         do
         {
-            System.out.println("Would you like to:\n> (1) Find the season of the year given a country name and month?\n> (2) Find whether a given temperature reading is above or below the average temperature of a city.\n> (0) Exit the program. ");
+            System.out.println("Would you like to:\n> (1) Find the season of the year given a country name and month?\n> (2) Find whether a given temperature reading is above or below the average temperature of a city?\n> (0) Exit the program. ");
             choice = input.nextInt();
 
             switch(choice)
@@ -30,7 +30,7 @@ public class ISADP
                 break;
                 
                 case 2:
-                choosingCity();
+                choosingOverall();
                 break;
             }
         }while(choice!=0);
@@ -215,76 +215,38 @@ public class ISADP
         }
         return seasonMSL;
     }
-    
-    public static void choosingCity()
+
+    public static double choosingOverall()
     {
         Scanner sc = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
 
-        double temperature, average;
-        int choiceCity = 0;
-        //double temp = 0;
-        System.out.println("Which city?\n> (1)Perth\n> (2)Adelaide");
-        choiceCity = input.nextInt();
-
-        switch(choiceCity)
-        {
-            case 1:
-            average = choosingTimePerth();
-            temperature = choosingTemp();
-            TempPerth(temperature, average);
-
-            
-            case 2:
-            average = choosingTimeAdelaide();
-            temperature = choosingTemp();
-            TempPerth(temperature, average);
-
-        }
-    }
-
-    public static double choosingTimePerth()
-    {
-        Scanner sc = new Scanner(System.in);
-        Scanner input = new Scanner(System.in);
-
+        double temperature = 0;
         double result = 0;
         int choiceTime = 0;
-        System.out.println("Which average temperature would you like to compare to?\n> (1) Morning\n> (2) Afternoon");
+        System.out.println("Which average temperature would you like to compare to?\n> (1) Perth Morning\n> (2) Perth Afternoon\n> (3) Adelaide Morning\n> (4) Adelaide Afternoon");
         choiceTime= input.nextInt();
 
         switch(choiceTime)
         {
             case 1:
-            result = 18.2;
+            temperature = choosingTemp();
+            TempPerth(temperature, 18.2);
             break;
 
             case 2:
-            result = 23.0;
-            break;
-        }
-        return result;
-
-    }
-
-    public static double choosingTimeAdelaide()
-    {
-        Scanner sc = new Scanner(System.in);
-        Scanner input = new Scanner(System.in);
-
-        double result = 0;
-        int choiceTime = 0;
-        System.out.println("Which average temperature would you like to compare to?\n> (1) Morning\n> (2) Afternoon");
-        choiceTime= input.nextInt();
-
-        switch(choiceTime)
-        {
-            case 1:
-            result = 16.5;
+            temperature = choosingTemp();
+            TempPerth(temperature, 23.0);
             break;
 
-            case 2:
-            result = 21.0;
+            case 3:
+            temperature = choosingTemp();
+            TempPerth(temperature, 16.5);
+            break;
+
+            case 4:
+            temperature = choosingTemp();
+            TempPerth(temperature, 21.0);
             break;
 
         }
@@ -307,25 +269,25 @@ public class ISADP
     {
         if(pTemp < avg)
         {
-            System.out.println(pTemp + "is below the average temperature of "+avg);
+            System.out.println(pTemp + " is below the average temperature of "+avg);
 
             if(pTemp < avg - 5)
             {
-                System.out.println(pTemp + "is below the average temperature of "+avg+ " by more than 5 degrees celsius");
+                System.out.println(pTemp + " is below the average temperature of "+avg+ " by more than 5 degrees celsius");
             }
         }
         else if(pTemp > avg)
         {
-            System.out.println(pTemp + "is above the average temperature of "+avg);
+            System.out.println(pTemp + " is above the average temperature of "+avg);
 
             if(pTemp > avg + 5)
             {
-                System.out.println(pTemp + "is above the average temperature of "+avg+ " by more than 5 degrees celsius");
+                System.out.println(pTemp + " is above the average temperature of "+avg+ " by more than 5 degrees celsius");
             }
         }
         else
         {
-            System.out.println(pTemp + "is the same as the average temperature of "+avg);
+            System.out.println(pTemp + " is the same as the average temperature of "+avg);
         }
     }
 }
