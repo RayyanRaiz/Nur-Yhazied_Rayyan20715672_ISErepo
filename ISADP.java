@@ -22,7 +22,8 @@ public class ISADP
                 case 1:
                 choiceC = choosingCountry();
                 System.out.println(choiceC);
-                //choosingMonth()
+                choiceM = choosingMonth();
+                System.out.println(choiceM);
                 //seasonMethod();
                 break;
 
