@@ -1,6 +1,10 @@
 import java.util.Scanner;
+
+import javax.lang.model.util.ElementScanner14;
+
 import java.util.*;
 import java.io.*;
+import java.lang.invoke.VarHandle;
 
 public class ISADP
 {
@@ -26,7 +30,7 @@ public class ISADP
                 break;
                 
                 case 2:
-                //temperatureMethod()
+                choosingCity();
                 break;
             }
         }while(choice!=0);
@@ -211,5 +215,117 @@ public class ISADP
         }
         return seasonMSL;
     }
+    
+    public static void choosingCity()
+    {
+        Scanner sc = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
+        double temperature, average;
+        int choiceCity = 0;
+        //double temp = 0;
+        System.out.println("Which city?\n> (1)Perth\n> (2)Adelaide");
+        choiceCity = input.nextInt();
+
+        switch(choiceCity)
+        {
+            case 1:
+            average = choosingTimePerth();
+            temperature = choosingTemp();
+            TempPerth(temperature, average);
+
+            
+            case 2:
+            average = choosingTimeAdelaide();
+            temperature = choosingTemp();
+            TempPerth(temperature, average);
+
+        }
+    }
+
+    public static double choosingTimePerth()
+    {
+        Scanner sc = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
+
+        double result = 0;
+        int choiceTime = 0;
+        System.out.println("Which average temperature would you like to compare to?\n> (1) Morning\n> (2) Afternoon");
+        choiceTime= input.nextInt();
+
+        switch(choiceTime)
+        {
+            case 1:
+            result = 18.2;
+            break;
+
+            case 2:
+            result = 23.0;
+            break;
+        }
+        return result;
+
+    }
+
+    public static double choosingTimeAdelaide()
+    {
+        Scanner sc = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
+
+        double result = 0;
+        int choiceTime = 0;
+        System.out.println("Which average temperature would you like to compare to?\n> (1) Morning\n> (2) Afternoon");
+        choiceTime= input.nextInt();
+
+        switch(choiceTime)
+        {
+            case 1:
+            result = 16.5;
+            break;
+
+            case 2:
+            result = 21.0;
+            break;
+
+        }
+        return result;
+    }
+
+    public static double choosingTemp()
+    {
+        Scanner sc = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
+
+        double choiceTemp = 0;
+        String result = "";
+        System.out.println("Insert temperature reading (up to one decimal place):");
+        choiceTemp = input.nextDouble();
+        return choiceTemp;
+    }
+
+    public static void TempPerth(double pTemp, double avg)
+    {
+        if(pTemp < avg)
+        {
+            System.out.println(pTemp + "is below the average temperature of "+avg);
+
+            if(pTemp < avg - 5)
+            {
+                System.out.println(pTemp + "is below the average temperature of "+avg+ " by more than 5 degrees celsius");
+            }
+        }
+        else if(pTemp > avg)
+        {
+            System.out.println(pTemp + "is above the average temperature of "+avg);
+
+            if(pTemp > avg + 5)
+            {
+                System.out.println(pTemp + "is above the average temperature of "+avg+ " by more than 5 degrees celsius");
+            }
+        }
+        else
+        {
+            System.out.println(pTemp + "is the same as the average temperature of "+avg);
+        }
+    }
 }
