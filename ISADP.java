@@ -24,9 +24,14 @@ public class ISADP
                 System.out.println(choiceC);
                 choiceM = choosingMonth();
                 System.out.println(choiceM);
+
+                //typeOfseason();
+
+                
+
                 //seasonMethod();
                 break;
-
+                
                 case 2:
                 //temperatureMethod()
                 break;
@@ -54,6 +59,62 @@ public class ISADP
         System.out.println("Which month?\n> (1) January\n> (2) February\n> (3) March\n> (4) April\n> (5) May\n> (6) June\n> (7) July\n> (8) August\n> (9) September\n> (10) October\n> (11) November\n> (12) December");
         choiceMonth = input.nextInt();
         return choiceMonth;
+    }
+
+    public static String AustraliaMeteorological(int pMonth)
+    {
+        String seasonAM = "";
+        switch(pMonth)
+        {
+            case 12: case 1: case 2:
+            seasonAM = "Summer";
+            break;
+
+            case 3: case 4: case 5:
+            seasonAM = "Autumn";
+            break;
+
+            case 6: case 7: case 8:
+            seasonAM = "Winter";
+            break;
+
+            case 9: case 10: case 11:
+            seasonAM = "Spring";
+            break;
+        }
+        return seasonAM;
+    }
+
+    public static String AustraliaNoongar(int pMonth)
+    {
+        String seasonAN = "";
+        switch(pMonth)
+        {
+            case 12: case 1:
+            seasonAN = "Birak";
+            break;
+
+            case 2: case 3:
+            seasonAN = "Bunuru";
+            break;
+
+            case 4: case 5:
+            seasonAN = "Djeran";
+            break;
+
+            case 6: case 7:
+            seasonAN = "Makuru";
+            break;
+
+            case 8: case 9:
+            seasonAN = "Dijiba";
+            break;
+
+            case 10: case 11:
+            seasonAN = "Kambarang";
+            break;
+        }
+        return seasonAN;
     }
 
 }
