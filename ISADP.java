@@ -117,4 +117,76 @@ public class ISADP
         return seasonAN;
     }
 
+    public static String SpainAndJapan(int pMonth)
+    {
+        String seasonSJ = "";
+        switch(pMonth)
+        {
+            case 12: case 1: case 2:
+            seasonSJ = "Winter";
+            break;
+
+            case 3: case 4: case 5:
+            seasonSJ = "Spring";
+            break;
+
+            case 6: case 7: case 8:
+            seasonSJ = "Summer";
+            break;
+
+            case 9: case 10: case 11:
+            seasonSJ = "Autumn";
+            break;
+        }
+        return seasonSJ;
+    }
+
+    public static String Mauritius(int pMonth)
+    {
+        String seasonM = "";
+        switch(pMonth)
+        {
+            case 11: case 12: case 1: case 2: case 3: case 4:
+            seasonM = "Summer";
+            break;
+
+            case 5:
+            seasonM = "Autumn";
+            break;
+
+            case 6: case 7: case 8: case 9:
+            seasonM = "Winter";
+            break;
+
+            case 10:
+            seasonM = "Spring";
+            break;
+        }
+        return seasonM;
+    }
+
+    public static String MalaysiaAndSriLanka(int pMonth)
+    {
+        String seasonMSL = "";
+        switch(pMonth)
+        {
+            case 12: case 1: case 2:
+            seasonMSL = "Northeast Monsoon";
+            break;
+
+            case 3: case 4:
+            seasonMSL = "Inter-monsoon";
+            break;
+
+            case 5: case 6: case 7: case 8: case 9:
+            seasonMSL = "Southeast-monsoon";
+            break;
+
+            case 10: case 11:
+            seasonMSL = "Inter-monsoon";
+            break;
+        }
+        return seasonMSL;
+    }
+
 }
