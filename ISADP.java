@@ -20,7 +20,9 @@ public class ISADP
             switch(choice)
             {
                 case 1:
-                    
+                choiceC = choosingCountry();
+                choiceM = choosingMonth();
+                System.out.println(CountrySeason(choiceC, choiceM));
                 break;
                 
                 case 2:
