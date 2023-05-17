@@ -20,16 +20,7 @@ public class ISADP
             switch(choice)
             {
                 case 1:
-                choiceC = choosingCountry();
-                System.out.println(choiceC);
-                choiceM = choosingMonth();
-                System.out.println(choiceM);
 
-                //typeOfseason();
-
-                
-
-                //seasonMethod();
                 break;
                 
                 case 2:
@@ -60,6 +51,36 @@ public class ISADP
         choiceMonth = input.nextInt();
         return choiceMonth;
     }
+
+    public static String CountrySeason(int pCountry, int pMonth)
+    {
+        String result = "";
+        switch(pCountry)
+        {
+            case 1:
+            result = AustraliaMeteorological(pMonth);
+            break;
+
+            case 2:
+            result = AustraliaNoongar(pMonth);
+            break;
+
+            case 3: case 4:
+            result = SpainAndJapan(pMonth);
+            break;
+
+            case 5:
+            result = Mauritius(pMonth);
+            break;
+
+            case 6: case 7:
+            result = MalaysiaAndSriLanka(pMonth);
+            break;
+        }
+        return result;
+    }
+
+
 
     public static String AustraliaMeteorological(int pMonth)
     {
