@@ -1,10 +1,12 @@
 import java.util.Scanner;
 
-import javax.lang.model.util.ElementScanner14;
 
 import java.util.*;
 import java.io.*;
-import java.lang.invoke.VarHandle;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class ISADP
 {
@@ -95,18 +97,22 @@ public class ISADP
         {
             case 12: case 1: case 2:
             seasonAM = "Summer";
+            DisplayImage("summer.png");
             break;
 
             case 3: case 4: case 5:
             seasonAM = "Autumn";
+            DisplayImage("autumn.png");
             break;
 
             case 6: case 7: case 8:
             seasonAM = "Winter";
+            DisplayImage("winter.png");
             break;
 
             case 9: case 10: case 11:
             seasonAM = "Spring";
+            DisplayImage("spring.png");
             break;
         }
         return seasonAM;
@@ -119,26 +125,32 @@ public class ISADP
         {
             case 12: case 1:
             seasonAN = "Birak";
+            DisplayImage("birak.png");
             break;
 
             case 2: case 3:
             seasonAN = "Bunuru";
+            DisplayImage("bunuru.png");
             break;
 
             case 4: case 5:
             seasonAN = "Djeran";
+            DisplayImage("djeran.png");
             break;
 
             case 6: case 7:
             seasonAN = "Makuru";
+            DisplayImage("makuru.png");
             break;
 
             case 8: case 9:
             seasonAN = "Dijiba";
+            DisplayImage("dijilba.png");
             break;
 
             case 10: case 11:
             seasonAN = "Kambarang";
+            DisplayImage("kambarang");
             break;
         }
         return seasonAN;
@@ -151,18 +163,22 @@ public class ISADP
         {
             case 12: case 1: case 2:
             seasonSJ = "Winter";
+            DisplayImage("winter.png");
             break;
 
             case 3: case 4: case 5:
             seasonSJ = "Spring";
+            DisplayImage("spring.png");
             break;
 
             case 6: case 7: case 8:
             seasonSJ = "Summer";
+            DisplayImage("summer.png");
             break;
 
             case 9: case 10: case 11:
             seasonSJ = "Autumn";
+            DisplayImage("autumn.png");
             break;
         }
         return seasonSJ;
@@ -175,18 +191,22 @@ public class ISADP
         {
             case 11: case 12: case 1: case 2: case 3: case 4:
             seasonM = "Summer";
+            DisplayImage("summer.png");
             break;
 
             case 5:
             seasonM = "Autumn";
+            DisplayImage("autumn.png");
             break;
 
             case 6: case 7: case 8: case 9:
             seasonM = "Winter";
+            DisplayImage("winter.png");
             break;
 
             case 10:
             seasonM = "Spring";
+            DisplayImage("spring.png");
             break;
         }
         return seasonM;
@@ -199,18 +219,22 @@ public class ISADP
         {
             case 12: case 1: case 2:
             seasonMSL = "Northeast Monsoon";
+            DisplayImage("monsoon.png");
             break;
 
             case 3: case 4:
             seasonMSL = "Inter-monsoon";
+            DisplayImage("inter-monsoon.png");
             break;
 
             case 5: case 6: case 7: case 8: case 9:
             seasonMSL = "Southeast-monsoon";
+            DisplayImage("monsoon.png");
             break;
 
             case 10: case 11:
             seasonMSL = "Inter-monsoon";
+            DisplayImage("inter-monsoon.png");
             break;
         }
         return seasonMSL;
@@ -287,5 +311,21 @@ public class ISADP
         {
             System.out.println(pTemp + " is the same as the average temperature of "+avg);
         }
+    }
+
+    public static void DisplayImage(String pImagefile)
+    {
+        // Load the image from a file
+        ImageIcon imageIcon = new ImageIcon(pImagefile);
+
+        // Create a label to display the image
+        JLabel label = new JLabel(imageIcon);
+            
+        // Create a frame to hold the label
+        JFrame frame = new JFrame("IMAGE");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(label);
+        frame.pack();
+        frame.setVisible(true);
     }
 }
