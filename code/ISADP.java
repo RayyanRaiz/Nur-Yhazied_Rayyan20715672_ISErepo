@@ -17,6 +17,7 @@ public class ISADP
         int choice = 0;
         int choiceC = 0;
         int choiceM = 0;
+        double temperature = 0;
 
         do
         {
@@ -32,7 +33,8 @@ public class ISADP
                 break;
                 
                 case 2:
-                averageTemp();
+                temperature = choosingTemp();
+                averageTemp(temperature);
                 break;
             }
         }while(choice!=0);
@@ -241,12 +243,11 @@ public class ISADP
         return seasonMSL;
     }
     ////////////////////////////////////////////////////////////////////SECONDS SCENARIO///////////////////////////////////////////////////////
-    public static void averageTemp()
+    public static void averageTemp(double pTemp)
     {
         Scanner sc = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
 
-        double temperature = 0;
         int choiceTime = 0;
         System.out.println("Which average temperature would you like to compare to?\n> (1) Perth Morning\n> (2) Perth Afternoon\n> (3) Adelaide Morning\n> (4) Adelaide Afternoon");
         choiceTime= input.nextInt();
@@ -254,23 +255,19 @@ public class ISADP
         switch(choiceTime)
         {
             case 1:
-            temperature = choosingTemp();
-            tempStrings(temperature, 18.2);
+            tempStrings(pTemp, 18.2);
             break;
 
             case 2:
-            temperature = choosingTemp();
-            tempStrings(temperature, 23.0);
+            tempStrings(pTemp, 23.0);
             break;
 
             case 3:
-            temperature = choosingTemp();
-            tempStrings(temperature, 16.5);
+            tempStrings(pTemp, 16.5);
             break;
 
             case 4:
-            temperature = choosingTemp();
-            tempStrings(temperature, 21.0);
+            tempStrings(pTemp, 21.0);
             break;
 
         }
