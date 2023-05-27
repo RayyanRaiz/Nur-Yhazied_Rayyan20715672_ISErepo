@@ -9,7 +9,7 @@ Implements the choice of country the user intends to pick for the program, based
 
 **Submodule : choosingMonth**  
 Imports : none  
-Exports : choiceMonth (integer)   
+Exports : choiceMonth (integer)  
 Implements the choice of month the user intends to pick for the program, based on the string read within which contatins a list of integers with the particular months next to them. Input is taken from the keyboard for choosing the month, and the output is the retun value.
 
 **Submodule : countrySeason**  
@@ -110,10 +110,181 @@ Redundancy
 |:-|:-|:-|
 |averageTemp|Q3 (Coupling)|The method calls have not been reduced as much as possible. The choosingTemp submodule would be repetitively called for each case in the switch case statment.
  
-### **e) Issues Identified, Refactor Code, Explain How It Has Improved**  
-This issue has been changed so the choosingTemp submodule is acually called within main and stored in a variable. The averageTemp module has been changed to include the pTemp parameter. All together, this helps reduce coupling as less calls are made. Looking at main now, scenario 2 is much more comprehensible since before it would just represent the averageTemp submodule with no parameters. Now with the parameter included, the code is much more understandable in what it is attempting to achieve.
+### **e) Issues Identified, Refactor Code, Explain How It Has Improved**   
+The issue has been changed so that the choosingTemp submodule is now called within main and stored in a variable. The averageTemp submodule has been changed to include the pTemp parameter. All together, this helps reduce coupling as less calls are made. In main, scenario two is much more comprehensible as before it would just represent the averageTemp submodule doing all the work with no parameters. Now with the parameter pTemp included, the code is much more understandable in what it is attempting to achieve.
 
-## **4. Test Designs (Black Box Testing)** 
+## **4. Test Designs (Black Box Testing)**  
+**australiaMeteorological submodule** 
+|Category  (pMonth)| Test Data (pMonth)| Expected Result|
+|:-|:-|:-|
+|pMonth = 1|1|"Summer"|
+|pMonth = 2|2|"Summer"|
+|pMonth = 3|3|"Autumn"|
+|pMonth = 4|4|"Autumn"|
+|pMonth = 5|5|"Autumn"|
+|pMonth = 6|6|"Winter"|
+|pMonth = 7|7|"Winter"|
+|pMonth = 8|8|"Winter"|
+|pMonth = 9|9|"Spring"|
+|pMonth = 10|10|"Spring"|
+|pMonth = 11|11|"Spring"|
+|pMonth = 12|12|"Summer"|
+|pMonth <= 0|-8|"error"|
+|pMonth >= 13|15|"error"|  
+
+**australiaNoongar submodule** 
+|Category  (pMonth)| Test Data (pMonth)| Expected Result|
+|:-|:-|:-|
+|pMonth = 1|1|"Birak"|
+|pMonth = 2|2|"Bunuru"|
+|pMonth = 3|3|"Bunuru"|
+|pMonth = 4|4|"Djeran"|
+|pMonth = 5|5|"Djeran"|
+|pMonth = 6|6|"Makuru"|
+|pMonth = 7|7|"Makuru"|
+|pMonth = 8|8|"Dijiba"|
+|pMonth = 9|9|"Dijiba"|
+|pMonth = 10|10|"Kambarang"|
+|pMonth = 11|11|"Kambarang"|
+|pMonth = 12|12|"Birak"|
+|pMonth <= 0|-7|"error"|
+|pMonth >= 13|16|"error"|  
+
+**spainAndJapan submodule** 
+|Category  (pMonth)| Test Data (pMonth)| Expected Result|
+|:-|:-|:-|
+|pMonth = 1|1|"Winter"|
+|pMonth = 2|2|"Winter"|
+|pMonth = 3|3|"Spring"|
+|pMonth = 4|4|"Spring"|
+|pMonth = 5|5|"Spring"|
+|pMonth = 6|6|"Summer"|
+|pMonth = 7|7|"Summer"|
+|pMonth = 8|8|"Summer"|
+|pMonth = 9|9|"Autumn"|
+|pMonth = 10|10|"Autumn"|
+|pMonth = 11|11|"Autumn"|
+|pMonth = 12|12|"Winter"|
+|pMonth <= 0|-19|"error"|
+|pMonth >= 13|18|"error"|
+
+**mauritius submodule** 
+|Category  (pMonth)| Test Data (pMonth)| Expected Result|
+|:-|:-|:-|
+|pMonth = 1|1|"Summer"|
+|pMonth = 2|2|"Summer"|
+|pMonth = 3|3|"Summer"|
+|pMonth = 4|4|"Summer"|
+|pMonth = 5|5|"Autumn"|
+|pMonth = 6|6|"Winter"|
+|pMonth = 7|7|"Winter"|
+|pMonth = 8|8|"Winter"|
+|pMonth = 9|9|"Winter"|
+|pMonth = 10|10|"Spring"|
+|pMonth = 11|11|"Summer"|
+|pMonth = 12|12|"Summer"|
+|pMonth <= 0|-20|"error"|
+|pMonth >= 13|20|"error"|  
+
+**malaysiaAndSriLanka submodule** 
+|Category  (pMonth)| Test Data (pMonth)| Expected Result|
+|:-|:-|:-|
+|pMonth = 1|1|"Northeast Monsoon"|
+|pMonth = 2|2"Northeast Monsoon"|
+|pMonth = 3|3|"Inter-monsoon"|
+|pMonth = 4|4|"Inter-monsoon"|
+|pMonth = 5|5|"Southeast-monsoon"|
+|pMonth = 6|6|"Southeast-monsoon"|
+|pMonth = 7|7|"Southeast-monsoon"|
+|pMonth = 8|8|"Southeast-monsoon"|
+|pMonth = 9|9|"Southeast-monsoon"|
+|pMonth = 10|10|"Inter-monsoon"|
+|pMonth = 11|11|"Inter-monsoon"|
+|pMonth = 12|12|"Northeast Monsoon"|
+|pMonth <= 0|-21|"error"|
+|pMonth >= 13|22|"error"|
+
+**perthMorning submodule** 
+|Category  (pTemp)| Test Data (pTemp)| Expected Result|
+|:-|:-|:-|
+|pTemp = 18.2 |18.2|"18.2 is the same as the average temperature of 18.2"|
+|13.2 <= pTemp < 18.2|16.0|"16.0 is below the average temperature of 18.2"|
+|18.2 < pTemp <= 23.2|22.0|"22.0 is above the average temperature of 18.2"|
+|pTemp < 13.2 |7.0|"7.0 is below the average temperature of 18.2\n7.0 is below the average temperature of 18.2 by more than 5 degrees celsius"|
+|pTemp > 23.2 |27.0|"27.0 is above the average temperature of 18.2\n27.0 is above the average temperature of 18.2 by more than 5 degrees celsius"|
+
+**perthAfternoon submodule** 
+|Category  (pTemp)| Test Data (pTemp)| Expected Result|
+|:-|:-|:-|
+|pTemp = 23.0 |23.0|"23.0 is the same as the average temperature of 23.0"|
+|18.0 <= pTemp < 23.0|19.0|"19.0 is below the average temperature of 23.0"|
+|23.0 < pTemp <= 28.0|25.0|"25.0 is above the average temperature of 23.0"|
+|pTemp < 18.0 |15.0|"15.0 is below the average temperature of 23.0\n15.0 is below the average temperature of 23.0 by more than 5 degrees celsius"|
+|pTemp > 28.0 |30.0|"30.0 is above the average temperature of 23.0\n30.0 is above the average temperature of 23.0 by more than 5 degrees celsius"|
+
+**adelaideMorning submodule** 
+|Category  (pTemp)| Test Data (pTemp)| Expected Result| 
+|:-|:-|:-|
+|pTemp = 16.5 |16.5|"16.5 is the same as the average temperature of 16.5"|
+|11.5 <= pTemp < 16.5|15.0|"15.0 is below the average temperature of 16.5"|
+|16.5 < pTemp <= 21.5|17.0|"17.0 is above the average temperature of 16.5"|
+|pTemp < 11.5 |10.0|"10.0 is below the average temperature of 16.5\n10.0 is below the average temperature of 16.5 by more than 5 degrees celsius"|
+|pTemp > 21.5 |25.0|"25.0is above the average temperature of 16.5\n25.0 is above the average temperature of 16.5 by more than 5 degrees celsius"|
+
+**adelaideAfternoon submodule** 
+|Category  (pTemp)| Test Data (pTemp)| Expected Result| 
+|:-|:-|:-|
+|pTemp = 21.0 |21.0|"21.0 is the same as the average temperature of 21.0"|
+|16.0 <= pTemp < 21.0|19.0|"19.0 is below the average temperature of 21.0"|
+|21.0 < pTemp <= 26.0|23.0|"23.0 is above the average temperature of 21.0"|
+|pTemp < 16.0 |10.0|"10.0 is below the average temperature of 21.0\n10.0 is below the average temperature of 21.0 by more than 5 degrees celsius"|
+|pTemp > 26.0 |28.0|"28.0 is above the average temperature of 21.0\n28.0 is above the average temperature of 21.0 by more than 5 degrees celsius"|  
+
+### **Boundary Value Analysis**  
+**australiaMeteorological submodule** 
+|Boundary| Test Data| Expected Result| 
+|:-|:-|:-|
+|Between Summer and Autumn|pMonth = 2, pMonth = 3|"Summer","Autumn"|
+|Between Autumn and Winter|pMonth = 5, pMonth = 6|"Autumn","Winter"|
+|Between Winter and Spring|pMonth = 8, pMonth = 9|"Winter","Spring"|
+|Between Spring and Summer|pMonth = 11, pMonth = 12|"Spring","Summer"|
+
+**australiaNoongar submodule** 
+|Boundary| Test Data| Expected Result| 
+|:-|:-|:-|
+|Between Birak and Bunuru|pMonth = 1, pMonth = 2|"Birak","Bunuru"|
+|Between Bunuru and Djeran|pMonth = 3, pMonth = 4|"Bunuru","Djeran"|
+|Between Djeran and Makuru|pMonth = 5, pMonth = 6|"Djeran","Makuru"|
+|Between Makuru and Dijiba|pMonth = 7, pMonth = 8|"Makuru","Dijiba"|
+|Between Dijiba and Kambarang|pMonth = 9, pMonth = 10|"Dijiba","Kambarang"|
+|Between Kambarang and Birak|pMonth = 11, pMonth = 12|"Kambarang","Birak"|
+
+**spainAndJapan submodule** 
+|Boundary| Test Data| Expected Result| 
+|:-|:-|:-|
+|Between Winter and Spring|pMonth = 2, pMonth = 3|"Winter","Spring"|
+|Between Spring and Summer|pMonth = 5, pMonth = 6|"Spring","Summer"|
+|Between Summer and Autumn|pMonth = 8, pMonth = 9|"Summer","Autumn"|
+|Between Autumn and Winter|pMonth = 11, pMonth = 12|"Autumn","Winter"|
+
+**mauritius submodule** 
+|Boundary| Test Data| Expected Result| 
+|:-|:-|:-|
+|Between Summer and Autumn|pMonth = 4, pMonth = 5|"Summer","Autumn"|
+|Between Autumn and Winter|pMonth = 5, pMonth = 6|"Autumn","Winter"|
+|Between Winter and Spring|pMonth = 9, pMonth = 10|"Winter","Spring"|
+|Between Spring and Summer|pMonth = 10, pMonth = 11|"Spring","Summer"|
+
+
+
+
+
+
+
+
+
+
+
 ## **5. Test Designs (White Box Testing)**  
 ## **6. Test Implementation**  
 ## **7. Ethics and Professionalism** 
