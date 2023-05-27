@@ -36,6 +36,13 @@ public class ISADP
                 temperature = choosingTemp();
                 averageTemp(temperature);
                 break;
+
+                case 0:
+                break;
+
+                default:
+                System.out.println("Invalid choice!\n");
+                break;
             }
         }while(choice!=0);
         System.exit(0);
@@ -45,10 +52,20 @@ public class ISADP
     {
         Scanner sc = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
+        int choiceCountry;
+        do
+        {
+            choiceCountry = 0;
+            System.out.println("Which country would you like?\n> (1) Australia - Meteorological\n> (2) Australia - The Noongar Seasons\n> (3) Spain\n> (4) Japan\n> (5) Mauritius\n> (6) Malaysia\n> (7) Sri Lanka");
+            choiceCountry = input.nextInt();
 
-        int choiceCountry = 0;
-        System.out.println("Which country would you like?\n> (1) Australia - Meteorological\n> (2) Australia - The Noongar Seasons\n> (3) Spain\n> (4) Japan\n> (5) Mauritius\n> (6) Malaysia\n> (7) Sri Lanka");
-        choiceCountry = input.nextInt();
+            if(choiceCountry!=1 && choiceCountry!=2 &&choiceCountry!=3 &&choiceCountry!=4 && choiceCountry!=5 &&choiceCountry!=6 &&choiceCountry!=7)
+            {
+                System.out.println("Invalid Choice!\n");
+            }
+
+        }while(choiceCountry!=1 && choiceCountry!=2 &&choiceCountry!=3 &&choiceCountry!=4 && choiceCountry!=5 &&choiceCountry!=6 &&choiceCountry!=7);
+
         return choiceCountry;
     }
 
@@ -56,10 +73,20 @@ public class ISADP
     {
         Scanner sc = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
+        int choiceMonth;
+        do
+        {
+            choiceMonth = 0;
+            System.out.println("Which month?\n> (1) January\n> (2) February\n> (3) March\n> (4) April\n> (5) May\n> (6) June\n> (7) July\n> (8) August\n> (9) September\n> (10) October\n> (11) November\n> (12) December");
+            choiceMonth = input.nextInt();
 
-        int choiceMonth = 0;
-        System.out.println("Which month?\n> (1) January\n> (2) February\n> (3) March\n> (4) April\n> (5) May\n> (6) June\n> (7) July\n> (8) August\n> (9) September\n> (10) October\n> (11) November\n> (12) December");
-        choiceMonth = input.nextInt();
+            if(choiceMonth!=1 && choiceMonth!=2 &&choiceMonth!=3 &&choiceMonth!=4 && choiceMonth!=5 &&choiceMonth!=6 &&choiceMonth!=7 &&choiceMonth!=8 &&choiceMonth!=9 &&choiceMonth!=10 &&choiceMonth!=11 &&choiceMonth!=12)
+            {
+                System.out.println("Invalid Choice!\n");
+            }
+
+        }while(choiceMonth!=1 && choiceMonth!=2 &&choiceMonth!=3 &&choiceMonth!=4 && choiceMonth!=5 &&choiceMonth!=6 &&choiceMonth!=7 &&choiceMonth!=8 &&choiceMonth!=9 &&choiceMonth!=10 &&choiceMonth!=11 &&choiceMonth!=12);
+
         return choiceMonth;
     }
 
@@ -87,6 +114,10 @@ public class ISADP
             case 6: case 7:
             result = malaysiaAndSriLanka(pMonth);
             break;
+
+            default:
+            break;
+            
         }
         return result;
     }
@@ -116,6 +147,10 @@ public class ISADP
             case 9: case 10: case 11:
             seasonAM = "Spring";
             displayImage("spring.png");
+            break;
+
+            default:
+            seasonAM = "error";
             break;
         }
         return seasonAM;
@@ -155,6 +190,10 @@ public class ISADP
             seasonAN = "Kambarang";
             displayImage("kambarang");
             break;
+
+            default:
+            seasonAN = "error";
+            break;
         }
         return seasonAN;
     }
@@ -182,6 +221,10 @@ public class ISADP
             case 9: case 10: case 11:
             seasonSJ = "Autumn";
             displayImage("autumn.png");
+            break;
+
+            default:
+            seasonSJ = "error";
             break;
         }
         return seasonSJ;
@@ -211,6 +254,10 @@ public class ISADP
             seasonM = "Spring";
             displayImage("spring.png");
             break;
+
+            default:
+            seasonM = "error";
+            break;
         }
         return seasonM;
     }
@@ -239,6 +286,10 @@ public class ISADP
             seasonMSL = "Inter-monsoon";
             displayImage("inter-monsoon.png");
             break;
+
+            default:
+            seasonMSL = "error";
+            break;
         }
         return seasonMSL;
     }
@@ -247,30 +298,39 @@ public class ISADP
     {
         Scanner sc = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
-
-        int choiceTime = 0;
-        System.out.println("Which average temperature would you like to compare to?\n> (1) Perth Morning\n> (2) Perth Afternoon\n> (3) Adelaide Morning\n> (4) Adelaide Afternoon");
-        choiceTime= input.nextInt();
-
-        switch(choiceTime)
+        int choiceTime;
+        do
         {
-            case 1:
-            tempStrings(pTemp, 18.2);
-            break;
+            choiceTime = 0;
+            System.out.println("Which average temperature would you like to compare to?\n> (1) Perth Morning (18.2 degrees celsuis)\n> (2) Perth Afternoon (23.0 degrees celsius)\n> (3) Adelaide Morning (16.5 degrees celsius)\n> (4) Adelaide Afternoon (21.0 degrees celsius)");
+            choiceTime= input.nextInt();
 
-            case 2:
-            tempStrings(pTemp, 23.0);
-            break;
+            switch(choiceTime)
+            {
+                case 1:
+                System.out.println(perthMorning(pTemp));
+                break;
 
-            case 3:
-            tempStrings(pTemp, 16.5);
-            break;
+                case 2:
+                System.out.println(perthAfternoon(pTemp));
+                break;
 
-            case 4:
-            tempStrings(pTemp, 21.0);
-            break;
+                case 3:
+                System.out.println(adelaideMorning(pTemp));
+                break;
 
-        }
+                case 4:
+                System.out.println(adelaideAfternoon(pTemp));
+                break;
+
+                default:
+                System.out.println("Invalid choice!\n");
+                break;
+
+            }
+
+        }while(choiceTime!= 1 && choiceTime!= 2 && choiceTime!= 3 && choiceTime!= 4);
+            
     }
 
     public static double choosingTemp()
@@ -285,30 +345,124 @@ public class ISADP
         return choiceTemp;
     }
 
-    public static void tempStrings(double pTemp, double avg)
+    public static String perthMorning(double pTemp) //UPDATE BEFORE 4//
     {
+        double avg = 18.2;
+        String result = "";
         if(pTemp < avg)
         {
-            System.out.println(pTemp + " is below the average temperature of "+avg);
+            result = pTemp + " is below the average temperature of "+avg;
 
             if(pTemp < avg - 5)
             {
-                System.out.println(pTemp + " is below the average temperature of "+avg+ " by more than 5 degrees celsius");
+                result = result +"\n" + pTemp + " is below the average temperature of "+avg+ " by more than 5 degrees celsius";
             }
         }
         else if(pTemp > avg)
         {
-            System.out.println(pTemp + " is above the average temperature of "+avg);
+            result = pTemp + " is above the average temperature of "+avg;
 
             if(pTemp > avg + 5)
             {
-                System.out.println(pTemp + " is above the average temperature of "+avg+ " by more than 5 degrees celsius");
+                result = result + "\n" + pTemp + " is above the average temperature of "+avg+ " by more than 5 degrees celsius";
             }
         }
         else
         {
-            System.out.println(pTemp + " is the same as the average temperature of "+avg);
+            result = pTemp + " is the same as the average temperature of "+avg;
         }
+
+        return result;
+    }
+
+    public static String perthAfternoon(double pTemp) //UPDATE BEFORE 4//
+    {
+        double avg = 23.0;
+        String result = "";
+        if(pTemp < avg)
+        {
+            result = pTemp + " is below the average temperature of "+avg;
+
+            if(pTemp < avg - 5)
+            {
+                result = result +"\n" + pTemp + " is below the average temperature of "+avg+ " by more than 5 degrees celsius";
+            }
+        }
+        else if(pTemp > avg)
+        {
+            result = pTemp + " is above the average temperature of "+avg;
+
+            if(pTemp > avg + 5)
+            {
+                result = result + "\n" + pTemp + " is above the average temperature of "+avg+ " by more than 5 degrees celsius";
+            }
+        }
+        else
+        {
+            result = pTemp + " is the same as the average temperature of "+avg;
+        }
+
+        return result;
+    }
+
+    public static String adelaideMorning(double pTemp) //UPDATE BEFORE 4//
+    {
+        double avg = 16.5;
+        String result = "";
+        if(pTemp < avg)
+        {
+            result = pTemp + " is below the average temperature of "+avg;
+
+            if(pTemp < avg - 5)
+            {
+                result = result +"\n" + pTemp + " is below the average temperature of "+avg+ " by more than 5 degrees celsius";
+            }
+        }
+        else if(pTemp > avg)
+        {
+            result = pTemp + " is above the average temperature of "+avg;
+
+            if(pTemp > avg + 5)
+            {
+                result = result + "\n" + pTemp + " is above the average temperature of "+avg+ " by more than 5 degrees celsius";
+            }
+        }
+        else
+        {
+            result = pTemp + " is the same as the average temperature of "+avg;
+        }
+
+        return result;
+    }
+
+    public static String adelaideAfternoon(double pTemp) //UPDATE BEFORE 4//
+    {
+        double avg = 21.0;
+        String result = "";
+        if(pTemp < avg)
+        {
+            result = pTemp + " is below the average temperature of "+avg;
+
+            if(pTemp < avg - 5)
+            {
+                result = result +"\n" + pTemp + " is below the average temperature of "+avg+ " by more than 5 degrees celsius";
+            }
+        }
+        else if(pTemp > avg)
+        {
+            result = pTemp + " is above the average temperature of "+avg;
+
+            if(pTemp > avg + 5)
+            {
+                result = result + "\n" + pTemp + " is above the average temperature of "+avg+ " by more than 5 degrees celsius";
+            }
+        }
+        else
+        {
+            result = pTemp + " is the same as the average temperature of "+avg;
+        }
+
+        return result;
     }
 
     public static void displayImage(String pImagefile)
