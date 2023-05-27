@@ -21,29 +21,41 @@ public class ISADP
 
         do
         {
-            System.out.println("Would you like to:\n> (1) Find the season of the year given a country name and month?\n> (2) Find whether a given temperature reading is above or below the average temperature of a city?\n> (0) Exit the program. ");
-            choice = input.nextInt();
-
-            switch(choice)
+            try
             {
-                case 1:
-                choiceC = choosingCountry();
-                choiceM = choosingMonth();
-                System.out.println(countrySeason(choiceC, choiceM));
-                break;
-                
-                case 2:
-                temperature = choosingTemp();
-                averageTemp(temperature);
-                break;
+                System.out.println("Would you like to:\n> (1) Find the season of the year given a country name and month?\n> (2) Find whether a given temperature reading is above or below the average temperature of a city?\n> (0) Exit the program. ");
+                choice = input.nextInt();
 
-                case 0:
-                break;
+                switch(choice)
+                {
+                    case 1:
+                    choiceC = choosingCountry();
+                    choiceM = choosingMonth();
+                    System.out.println(countrySeason(choiceC, choiceM));
+                    break;
+                    
+                    case 2:
+                    temperature = choosingTemp();
+                    averageTemp(temperature);
+                    break;
 
-                default:
-                System.out.println("Invalid choice!\n");
-                break;
+                    case 0:
+                    break;
+
+                    default:
+                    System.out.println("Invalid choice!\n");
+                    break;
+                }
+            }    
+            catch(InputMismatchException error)
+            {
+                System.out.println("Invalid choice!" + error);
+                System.out.println("The error: " + error);
+                choice = 0;
             }
+
+        
+            
         }while(choice!=0);
         System.exit(0);
     }
@@ -52,13 +64,21 @@ public class ISADP
     {
         Scanner sc = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
-        int choiceCountry;
+        int choiceCountry = 0;
         do
         {
-            choiceCountry = 0;
-            System.out.println("Which country would you like?\n> (1) Australia - Meteorological\n> (2) Australia - The Noongar Seasons\n> (3) Spain\n> (4) Japan\n> (5) Mauritius\n> (6) Malaysia\n> (7) Sri Lanka");
-            choiceCountry = input.nextInt();
+            try
+            {
+                System.out.println("Which country would you like?\n> (1) Australia - Meteorological\n> (2) Australia - The Noongar Seasons\n> (3) Spain\n> (4) Japan\n> (5) Mauritius\n> (6) Malaysia\n> (7) Sri Lanka");
+                choiceCountry = input.nextInt();
+            }
+            catch(InputMismatchException error)
+            {
+                System.out.println("Invalid choice!");
+                System.out.println("The error: " + error);
+                System.exit(1);
 
+            }
             if(choiceCountry!=1 && choiceCountry!=2 &&choiceCountry!=3 &&choiceCountry!=4 && choiceCountry!=5 &&choiceCountry!=6 &&choiceCountry!=7)
             {
                 System.out.println("Invalid Choice!\n");
@@ -73,12 +93,22 @@ public class ISADP
     {
         Scanner sc = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
-        int choiceMonth;
+        int choiceMonth = 0;
         do
         {
-            choiceMonth = 0;
-            System.out.println("Which month?\n> (1) January\n> (2) February\n> (3) March\n> (4) April\n> (5) May\n> (6) June\n> (7) July\n> (8) August\n> (9) September\n> (10) October\n> (11) November\n> (12) December");
-            choiceMonth = input.nextInt();
+            try
+            {
+                System.out.println("Which month?\n> (1) January\n> (2) February\n> (3) March\n> (4) April\n> (5) May\n> (6) June\n> (7) July\n> (8) August\n> (9) September\n> (10) October\n> (11) November\n> (12) December");
+                choiceMonth = input.nextInt();
+
+            }
+            catch(InputMismatchException error)
+            {
+                System.out.println("Invalid choice!");
+                System.out.println("The error: " + error);
+                System.exit(1);
+
+            }
 
             if(choiceMonth!=1 && choiceMonth!=2 &&choiceMonth!=3 &&choiceMonth!=4 && choiceMonth!=5 &&choiceMonth!=6 &&choiceMonth!=7 &&choiceMonth!=8 &&choiceMonth!=9 &&choiceMonth!=10 &&choiceMonth!=11 &&choiceMonth!=12)
             {
@@ -148,10 +178,6 @@ public class ISADP
             seasonAM = "Spring";
             displayImage("spring.png");
             break;
-
-            default:
-            seasonAM = "error";
-            break;
         }
         return seasonAM;
     }
@@ -190,10 +216,6 @@ public class ISADP
             seasonAN = "Kambarang";
             displayImage("kambarang");
             break;
-
-            default:
-            seasonAN = "error";
-            break;
         }
         return seasonAN;
     }
@@ -221,10 +243,6 @@ public class ISADP
             case 9: case 10: case 11:
             seasonSJ = "Autumn";
             displayImage("autumn.png");
-            break;
-
-            default:
-            seasonSJ = "error";
             break;
         }
         return seasonSJ;
@@ -254,10 +272,6 @@ public class ISADP
             seasonM = "Spring";
             displayImage("spring.png");
             break;
-
-            default:
-            seasonM = "error";
-            break;
         }
         return seasonM;
     }
@@ -286,10 +300,6 @@ public class ISADP
             seasonMSL = "Inter-monsoon";
             displayImage("inter-monsoon.png");
             break;
-
-            default:
-            seasonMSL = "error";
-            break;
         }
         return seasonMSL;
     }
@@ -298,13 +308,23 @@ public class ISADP
     {
         Scanner sc = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
-        int choiceTime;
+        int choiceTime = 0;
         do
         {
-            choiceTime = 0;
-            System.out.println("Which average temperature would you like to compare to?\n> (1) Perth Morning (18.2 degrees celsuis)\n> (2) Perth Afternoon (23.0 degrees celsius)\n> (3) Adelaide Morning (16.5 degrees celsius)\n> (4) Adelaide Afternoon (21.0 degrees celsius)");
-            choiceTime= input.nextInt();
+            try
+            {
+                System.out.println("Which average temperature would you like to compare to?\n> (1) Perth Morning (18.2 degrees celsuis)\n> (2) Perth Afternoon (23.0 degrees celsius)\n> (3) Adelaide Morning (16.5 degrees celsius)\n> (4) Adelaide Afternoon (21.0 degrees celsius)");
+                choiceTime= input.nextInt();
 
+            }
+            catch(InputMismatchException error)
+            {
+                System.out.println("Invalid choice!");
+                System.out.println("The error: " + error);
+                System.exit(1);
+
+            }
+            
             switch(choiceTime)
             {
                 case 1:
@@ -337,11 +357,20 @@ public class ISADP
     {
         Scanner sc = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
-
         double choiceTemp = 0;
-        String result = "";
-        System.out.println("Insert temperature reading (up to one decimal place):");
-        choiceTemp = input.nextDouble();
+
+        try
+        {
+            System.out.println("Insert temperature reading (up to one decimal place):");
+            choiceTemp = input.nextDouble();
+        }
+        catch(InputMismatchException error)
+        {
+            System.out.println("Invalid choice!");
+            System.out.println("The error: " + error);
+            System.exit(1);
+        }
+        
         return choiceTemp;
     }
 
@@ -466,13 +495,13 @@ public class ISADP
     }
 
     public static void displayImage(String pImagefile)
-    {
+    {   
         // Load the image from a file
         ImageIcon imageIcon = new ImageIcon(pImagefile);
-
+        
         // Create a label to display the image
         JLabel label = new JLabel(imageIcon);
-            
+                
         // Create a frame to hold the label
         JFrame frame = new JFrame("IMAGE");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
