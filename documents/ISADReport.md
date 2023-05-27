@@ -259,14 +259,6 @@ The issue has been changed so that the choosingTemp submodule is now called with
 |Between Dijiba and Kambarang|pMonth = 9, pMonth = 10|"Dijiba","Kambarang"|
 |Between Kambarang and Birak|pMonth = 11, pMonth = 12|"Kambarang","Birak"|
 
-**spainAndJapan submodule** 
-|Boundary| Test Data| Expected Result| 
-|:-|:-|:-|
-|Between Winter and Spring|pMonth = 2, pMonth = 3|"Winter","Spring"|
-|Between Spring and Summer|pMonth = 5, pMonth = 6|"Spring","Summer"|
-|Between Summer and Autumn|pMonth = 8, pMonth = 9|"Summer","Autumn"|
-|Between Autumn and Winter|pMonth = 11, pMonth = 12|"Autumn","Winter"|
-
 **mauritius submodule** 
 |Boundary| Test Data| Expected Result| 
 |:-|:-|:-|
@@ -275,17 +267,60 @@ The issue has been changed so that the choosingTemp submodule is now called with
 |Between Winter and Spring|pMonth = 9, pMonth = 10|"Winter","Spring"|
 |Between Spring and Summer|pMonth = 10, pMonth = 11|"Spring","Summer"|
 
+**malaysiaAndSriLanka submodule** 
+|Boundary| Test Data| Expected Result| 
+|:-|:-|:-|
+|Between Northeast Monsoon and Inter-monsoon|pMonth = 2, pMonth = 3|"Northeast Monsoon","Inter-monsoon"|
+|Between Inter-monsoon and Southeast-monsoon|pMonth = 4, pMonth = 5|"Inter-monsoon","Southeast-monsoon"|
+|Between Southeast-monsoon and Inter-monsoon|pMonth = 9, pMonth = 10|"Southeast-monsoon","Inter-monsoon"|
+|Between Inter-monsoon and Northeast Monsoon|pMonth = 11, pMonth = 12|"Inter-monsoon","Northeast Monsoon"|
 
+**perthMorning submodule** 
+|Boundary| Test Data| Expected Result| 
+|:-|:-|:-|
+|Between below 18.2 by more than 5 / below 18.2 by less than 5 |13.1999, 13.2|
+|Between below 18.2 by less than 5 / equal to 18.2|18.1999, 18.2|
+|Between equal to 18.2 / above 18.2 by less than 5|18.2, 18.2001|
+|Between above 18.2 by less than 5 / above 18.2 by more than 5|23.2, 23.2001|
 
+**perthAfternoon submodule** 
+|Boundary| Test Data| Expected Result| 
+|:-|:-|:-|
+|Between below 23.0 by more than 5 / below 23.0 by less than 5|17.9999,18.0|
+|Between below 23.0 by less than 5 / equal to 23.0|22.9999, 23.0|
+|Between equal to 23.0 / above 23.0 by less than 5 |23.0, 23.0001|
+|Between above 23.0 by less than 5 / above 23.0 by more than 5 |28.0, 28.0001|
 
-
-
-
-
-
-
+LAST FOUR DIGITS, LAST NAME ON ID, NAME OF COUNTRY WISH TO VISIT
 
 ## **5. Test Designs (White Box Testing)**  
+
+**spainAndJapan submodule** 
+|Path| Test Data| Expected Result|
+|:-|:-|:-|
+|Enters First Case|Input : "12" |Output : "Winter"
+|Enters Second Case|Input : "3" |Output : "Spring"
+|Enters Third Case|Input : "6"|Output : "Summer:
+|Enters Last Case|Input : "9" |Output : "Autumn"
+
+**perthMorning submodule** 
+|Path| Test Data| Expected Result|
+|:-|:-|:-|
+|Enter First IF|Input : "18.0"|Output : "18.0 is below the average temperature of 18.2"
+|Enter First IF, Then Second IF|Input : "10.0" |Output : "10.0 is below the average temperature of 18.2\n10.0 is below the average temperature of 18.2 by more than 5 degrees celsius"
+|Enters Else If|Input : "19.0" |Output : "19.0 is above the average temperature of 18.2"
+|Enters Else If, Then IF|Input : "30.0" |Output : "30.0 is above the average temperature of 18.2\n30.0 is above the average temperature of 18.2 by more than 5 degrees celsius"
+|Enters Else|Input : "18.2" |Output : "18.2 is the same as the average temperature of 18.2"
+
+**countrySeason submodule** 
+|Path| Test Data| Expected Result|
+|:-|:-|:-|
+|Enter australiaMeteorological case|Input : "1"|Output: "australiaMeteorological(pMonth)"
+|Enter australiaNoongar case|Input : "2"|Output: "australiaNoongar(pMonth)"
+|Enter spainAndJapan case|Input : "4"|Output: "spainAndJapan(pMonth)"
+|Enter mauritius case|Input : "5"|Output: "mauritius(pMonth)"
+|Enter malaysiaAndSriLanka case|Input : "7"|Output:"malaysiaAndSriLanka(pMonth)"
+
 ## **6. Test Implementation**  
 ## **7. Ethics and Professionalism** 
 
