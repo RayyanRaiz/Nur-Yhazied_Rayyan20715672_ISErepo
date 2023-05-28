@@ -178,6 +178,10 @@ public class ISADP
             seasonAM = "Spring";
             displayImage("spring.png");
             break;
+
+            default:
+            seasonAM = "error";
+            break;
         }
         return seasonAM;
     }
@@ -216,6 +220,10 @@ public class ISADP
             seasonAN = "Kambarang";
             displayImage("kambarang");
             break;
+
+            default:
+            seasonAN = "error";
+            break;
         }
         return seasonAN;
     }
@@ -243,6 +251,10 @@ public class ISADP
             case 9: case 10: case 11:
             seasonSJ = "Autumn";
             displayImage("autumn.png");
+            break;
+
+            default:
+            seasonSJ = "error";
             break;
         }
         return seasonSJ;
@@ -272,6 +284,10 @@ public class ISADP
             seasonM = "Spring";
             displayImage("spring.png");
             break;
+
+            default:
+            seasonM = "error";
+            break;
         }
         return seasonM;
     }
@@ -299,6 +315,10 @@ public class ISADP
             case 10: case 11:
             seasonMSL = "Inter-monsoon";
             displayImage("inter-monsoon.png");
+            break;
+
+            default:
+            seasonMSL = "error";
             break;
         }
         return seasonMSL;
