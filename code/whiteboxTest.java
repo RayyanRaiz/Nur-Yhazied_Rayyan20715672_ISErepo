@@ -44,10 +44,68 @@ public class whiteboxTest
 
     public static void testCountrySeasonWBT()
     {
-        //Enter First IF
-        //System.setIn(
-            //new ByteArrayInputStream("1\n1".getBytes()));
+        //ENTER Australia Meteorological Case
+        //enter Summer case
         assert "Summer".equals(ISADP.countrySeason(1,1));
+        //enter Autumn case
+        assert "Autumn".equals(ISADP.countrySeason(1,4));
+        //enter Winter case
+        assert "Winter".equals(ISADP.countrySeason(1,7));
+        //enter Spring case
+        assert "Spring".equals(ISADP.countrySeason(1,10));
+        //enter error case
+        assert "error".equals(ISADP.countrySeason(1,13));
 
+        //ENTER Australia Noongar Case
+        //enter Birak case
+        assert "Birak".equals(ISADP.countrySeason(2,1));
+        //enter Bunuru case
+        assert "Bunuru".equals(ISADP.countrySeason(2,3));
+        //enter Djeran case
+        assert "Djeran".equals(ISADP.countrySeason(2,5));
+        //enter Makuru case
+        assert "Makuru".equals(ISADP.countrySeason(2,7));
+        //enter Dijiba case
+        assert "Dijiba".equals(ISADP.countrySeason(2,9));
+        //enter Kambarang case
+        assert "Kambarang".equals(ISADP.countrySeason(2,11));
+        //enter error case
+        assert "error".equals(ISADP.countrySeason(2,14));
+
+        //ENTER Spain and Japan Case
+        //enter Winter case
+        assert "Winter".equals(ISADP.countrySeason(4,12));
+        //enter Spring case
+        assert "Spring".equals(ISADP.countrySeason(4,4));
+        //enter Summer case
+        assert "Summer".equals(ISADP.countrySeason(4,7));
+        //enter Autumn case
+        assert "Autumn".equals(ISADP.countrySeason(4,10));
+        //enter error case
+        assert "error".equals(ISADP.countrySeason(4,14));
+
+        //ENTER Mauritius Case
+        //enter Summer case
+        assert "Summer".equals(ISADP.countrySeason(5,1));
+        //enter Autumn case
+        assert "Autumn".equals(ISADP.countrySeason(5,5));
+        //enter Winter case
+        assert "Winter".equals(ISADP.countrySeason(5,8));
+        //enter Spring case
+        assert "Spring".equals(ISADP.countrySeason(5,10));
+        //enter error case
+        assert "error".equals(ISADP.countrySeason(5,20));
+
+        //ENTER Malaysia and Sri Lanka Case
+        //enter Northeast Monsoon case
+        assert "Northeast Monsoon".equals(ISADP.countrySeason(7,1));
+        //enter Inter-monsoon case
+        assert "Inter-monsoon".equals(ISADP.countrySeason(7,4));
+        //enter Southeast-monsoon case
+        assert "Southeast-monsoon".equals(ISADP.countrySeason(7,8));
+        //enter Inter-monsoon case
+        assert "Inter-monsoon".equals(ISADP.countrySeason(7,11));
+        //enter error case
+        assert "error".equals(ISADP.countrySeason(7,0));
     }
 }   
