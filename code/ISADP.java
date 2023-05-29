@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class ISADP
+public class ISADP //MAIN PROGRAM, FIRST MENU TO POP UP. ABNLE TO CHOOSE BETWEEN SCENARIO 1 AND 2
 {
     public static void main(String[] args)
     {
@@ -28,21 +28,21 @@ public class ISADP
 
                 switch(choice)
                 {
-                    case 1:
+                    case 1: //SCENARIO 1
                     choiceC = choosingCountry();
                     choiceM = choosingMonth();
                     System.out.println(countrySeason(choiceC, choiceM));
                     break;
                     
-                    case 2:
+                    case 2: //SCENARIO 2
                     temperature = choosingTemp();
                     averageTemp(temperature);
                     break;
 
-                    case 0:
+                    case 0: //EXIT PROGRAM
                     break;
 
-                    default:
+                    default: //ERROR HANDLING
                     System.out.println("Invalid choice!\n");
                     break;
                 }
@@ -60,7 +60,7 @@ public class ISADP
         System.exit(0);
     }
 
-    public static int choosingCountry()
+    public static int choosingCountry() //USER ENTERS CHOICE OF COUNTRY
     {
         Scanner sc = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
@@ -89,7 +89,7 @@ public class ISADP
         return choiceCountry;
     }
 
-    public static int choosingMonth()
+    public static int choosingMonth() //USER ENTERS CHOICE OF MONTH
     {
         Scanner sc = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
@@ -120,7 +120,7 @@ public class ISADP
         return choiceMonth;
     }
 
-    public static String countrySeason(int pCountry, int pMonth)
+    public static String countrySeason(int pCountry, int pMonth) //CALCULATION PROCESS GIVEN THE COUNTRY AND MONTH TO FIND THE SEASON
     {
         String result = "";
         switch(pCountry)
@@ -154,7 +154,7 @@ public class ISADP
 
 
 
-    public static String australiaMeteorological(int pMonth)
+    public static String australiaMeteorological(int pMonth) //SEASON OUTCOMES FOR AUSTRLAIA METEOROLOGICAL
     {
         String seasonAM = "";
         switch(pMonth)
@@ -186,7 +186,7 @@ public class ISADP
         return seasonAM;
     }
 
-    public static String australiaNoongar(int pMonth)
+    public static String australiaNoongar(int pMonth) //SEASON OUTCOMES FOR AUSTRLAIA NOONGAR
     {
         String seasonAN = "";
         switch(pMonth)
@@ -228,7 +228,7 @@ public class ISADP
         return seasonAN;
     }
 
-    public static String spainAndJapan(int pMonth)
+    public static String spainAndJapan(int pMonth) //SEASON OUTCOMES FOR SPAIN AND JAPAN
     {
         String seasonSJ = "";
         switch(pMonth)
@@ -260,7 +260,7 @@ public class ISADP
         return seasonSJ;
     }
 
-    public static String mauritius(int pMonth)
+    public static String mauritius(int pMonth) //SEASON OUTCOMES FOR MAURITIUS
     {
         String seasonM = "";
         switch(pMonth)
@@ -292,8 +292,8 @@ public class ISADP
         return seasonM;
     }
 
-    public static String malaysiaAndSriLanka(int pMonth)
-    {
+    public static String malaysiaAndSriLanka(int pMonth) //SEASON OUTCOMES FOR MALAYSIA AND SRI LANKA
+    { 
         String seasonMSL = "";
         switch(pMonth)
         {
@@ -324,7 +324,7 @@ public class ISADP
         return seasonMSL;
     }
     ////////////////////////////////////////////////////////////////////SECONDS SCENARIO///////////////////////////////////////////////////////
-    public static void averageTemp(double pTemp)
+    public static void averageTemp(double pTemp) //MAIN MENU FOR SCENARIO 2, CHOOSING THE CITY/TIME
     {
         Scanner sc = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
@@ -373,7 +373,7 @@ public class ISADP
             
     }
 
-    public static double choosingTemp()
+    public static double choosingTemp() //USER CHOOSES A TEMPERATURE READING TO ANALYSE
     {
         Scanner sc = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
@@ -394,7 +394,7 @@ public class ISADP
         return choiceTemp;
     }
 
-    public static String perthMorning(double pTemp) //UPDATE BEFORE 4//
+    public static String perthMorning(double pTemp)  //PERTH MORNING ANALYSIS
     {
         double avg = 18.2;
         String result = "";
@@ -424,7 +424,7 @@ public class ISADP
         return result;
     }
 
-    public static String perthAfternoon(double pTemp) //UPDATE BEFORE 4//
+    public static String perthAfternoon(double pTemp)  //PERTH AFTERNOON ANALYSIS
     {
         double avg = 23.0;
         String result = "";
@@ -454,7 +454,7 @@ public class ISADP
         return result;
     }
 
-    public static String adelaideMorning(double pTemp) //UPDATE BEFORE 4//
+    public static String adelaideMorning(double pTemp)  //ADELAIDE MORNING ANALYSIS
     {
         double avg = 16.5;
         String result = "";
@@ -484,7 +484,7 @@ public class ISADP
         return result;
     }
 
-    public static String adelaideAfternoon(double pTemp) //UPDATE BEFORE 4//
+    public static String adelaideAfternoon(double pTemp)  //ADELAIDE AFTERNOON ANALYSIS
     {
         double avg = 21.0;
         String result = "";
@@ -514,7 +514,7 @@ public class ISADP
         return result;
     }
 
-    public static void displayImage(String pImagefile)
+    public static void displayImage(String pImagefile) //DISPLAYING IMAGES WITH OUTCOME
     {   
         // Load the image from a file
         ImageIcon imageIcon = new ImageIcon(pImagefile);
