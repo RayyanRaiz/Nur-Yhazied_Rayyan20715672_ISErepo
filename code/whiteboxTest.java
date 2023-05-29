@@ -2,7 +2,7 @@ import java.io.ByteArrayInputStream;
 
 public class whiteboxTest
 {
-    public static void main(String[] args)
+    public static void main(String[] args) //TEST SUITE
     {
         testSpainAndJapanWBT();
         testPerthMorningWBT();
