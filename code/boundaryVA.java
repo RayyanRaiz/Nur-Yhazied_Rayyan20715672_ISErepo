@@ -1,6 +1,6 @@
 public class boundaryVA
 {
-    public static void main(String[] args)
+    public static void main(String[] args) //TEST SUITE
     {
         testAustraliaMeteorologicalBVA();
         testAustraliaNoongarBVA();
