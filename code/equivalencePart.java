@@ -1,6 +1,6 @@
 public class equivalencePart
 {
-    public static void main(String[] args)
+    public static void main(String[] args) //TEST SUITE
     {
         //SCENARIO 1
         testAustraliaMeteorological();
@@ -68,37 +68,37 @@ public class equivalencePart
 
     public static void testPerthMorning()
     {
-        assert "18.2 is the same as the average temperature of 18.2".equals(ISADP.perthMorning(18.2));
-        assert "16.0 is below the average temperature of 18.2".equals(ISADP.perthMorning(16.0));
-        assert "22.0 is above the average temperature of 18.2".equals(ISADP.perthMorning(22.0));
-        assert "7.0 is below the average temperature of 18.2\n7.0 is below the average temperature of 18.2 by more than 5 degrees celsius".equals(ISADP.perthMorning(7.0));
-        assert "27.0 is above the average temperature of 18.2\n27.0 is above the average temperature of 18.2 by more than 5 degrees celsius".equals(ISADP.perthMorning(27.0));
+        assert "18.2 is the same as the average temperature of 18.2".equals(ISADP.perthMorning(18.2)); //TEST SAME
+        assert "16.0 is below the average temperature of 18.2".equals(ISADP.perthMorning(16.0)); //TEST BELOW
+        assert "22.0 is above the average temperature of 18.2".equals(ISADP.perthMorning(22.0)); //TEST ABOVE
+        assert "7.0 is below the average temperature of 18.2\n7.0 is below the average temperature of 18.2 by more than 5 degrees celsius".equals(ISADP.perthMorning(7.0)); //TEST BELOW BY MORE THAN 5
+        assert "27.0 is above the average temperature of 18.2\n27.0 is above the average temperature of 18.2 by more than 5 degrees celsius".equals(ISADP.perthMorning(27.0)); //TEST ABOVE BY MORE THAN 5
     }
 
     public static void testPerthAfternoon()
     {
-        assert "23.0 is the same as the average temperature of 23.0".equals(ISADP.perthAfternoon(23.0));
-        assert "19.0 is below the average temperature of 23.0".equals(ISADP.perthAfternoon(19.0));
-        assert "25.0 is above the average temperature of 23.0".equals(ISADP.perthAfternoon(25.0));
-        assert "15.0 is below the average temperature of 23.0\n15.0 is below the average temperature of 23.0 by more than 5 degrees celsius".equals(ISADP.perthAfternoon(15.0));
-        assert "30.0 is above the average temperature of 23.0\n30.0 is above the average temperature of 23.0 by more than 5 degrees celsius".equals(ISADP.perthAfternoon(30.0));
+        assert "23.0 is the same as the average temperature of 23.0".equals(ISADP.perthAfternoon(23.0)); //TEST SAME
+        assert "19.0 is below the average temperature of 23.0".equals(ISADP.perthAfternoon(19.0)); //TEST BELOW
+        assert "25.0 is above the average temperature of 23.0".equals(ISADP.perthAfternoon(25.0)); //TEST ABOVE
+        assert "15.0 is below the average temperature of 23.0\n15.0 is below the average temperature of 23.0 by more than 5 degrees celsius".equals(ISADP.perthAfternoon(15.0)); //TEST BELOW BY MORE THAN 5
+        assert "30.0 is above the average temperature of 23.0\n30.0 is above the average temperature of 23.0 by more than 5 degrees celsius".equals(ISADP.perthAfternoon(30.0)); //TEST ABOVE BY MORE THAN 5
     }
     public static void testAdelaideMorning()
     {
-        assert "16.5 is the same as the average temperature of 16.5".equals(ISADP.adelaideMorning(16.5));
-        assert "15.0 is below the average temperature of 16.5".equals(ISADP.adelaideMorning(15.0));
-        assert "17.0 is above the average temperature of 16.5".equals(ISADP.adelaideMorning(17.0));
-        assert "10.0 is below the average temperature of 16.5\n10.0 is below the average temperature of 16.5 by more than 5 degrees celsius".equals(ISADP.adelaideMorning(10.0));
-        assert "25.0 is above the average temperature of 16.5\n25.0 is above the average temperature of 16.5 by more than 5 degrees celsius".equals(ISADP.adelaideMorning(25.0));
+        assert "16.5 is the same as the average temperature of 16.5".equals(ISADP.adelaideMorning(16.5)); //TEST SAME
+        assert "15.0 is below the average temperature of 16.5".equals(ISADP.adelaideMorning(15.0)); //TEST BELOW
+        assert "17.0 is above the average temperature of 16.5".equals(ISADP.adelaideMorning(17.0)); //TEST ABOVE
+        assert "10.0 is below the average temperature of 16.5\n10.0 is below the average temperature of 16.5 by more than 5 degrees celsius".equals(ISADP.adelaideMorning(10.0)); //TEST BELOW BY MORE THAN 5
+        assert "25.0 is above the average temperature of 16.5\n25.0 is above the average temperature of 16.5 by more than 5 degrees celsius".equals(ISADP.adelaideMorning(25.0)); //TEST ABOVE BY MORE THAN 5
     }
 
     public static void testAdelaideAfternoon()
     {
-        assert "21.0 is the same as the average temperature of 21.0".equals(ISADP.adelaideAfternoon(21.0));
-        assert "19.0 is below the average temperature of 21.0".equals(ISADP.adelaideAfternoon(19.0));
-        assert "23.0 is above the average temperature of 21.0".equals(ISADP.adelaideAfternoon(23.0));
-        assert "10.0 is below the average temperature of 21.0\n10.0 is below the average temperature of 21.0 by more than 5 degrees celsius".equals(ISADP.adelaideAfternoon(10.0));
-        assert "28.0 is above the average temperature of 21.0\n28.0 is above the average temperature of 21.0 by more than 5 degrees celsius".equals(ISADP.adelaideAfternoon(28.0));
+        assert "21.0 is the same as the average temperature of 21.0".equals(ISADP.adelaideAfternoon(21.0)); //TEST SAME
+        assert "19.0 is below the average temperature of 21.0".equals(ISADP.adelaideAfternoon(19.0)); //TEST BELOW
+        assert "23.0 is above the average temperature of 21.0".equals(ISADP.adelaideAfternoon(23.0)); //TEST ABOVE
+        assert "10.0 is below the average temperature of 21.0\n10.0 is below the average temperature of 21.0 by more than 5 degrees celsius".equals(ISADP.adelaideAfternoon(10.0)); //TEST BELOW BY MORE THAN 5
+        assert "28.0 is above the average temperature of 21.0\n28.0 is above the average temperature of 21.0 by more than 5 degrees celsius".equals(ISADP.adelaideAfternoon(28.0)); //TEST ABOVE BY MORE THAN 5
     }
 
 
